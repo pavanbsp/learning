@@ -1,7 +1,6 @@
 package com.increff.employee;
 
 import org.apache.log4j.Logger;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,18 +25,16 @@ public class EmployeeApi {
         Class.forName(props.getProperty("jdbc.driver"));
         con = DriverManager.getConnection(props.getProperty("jdbc.url"), props.getProperty("jdbc.username"),
                 props.getProperty("jdbc.password"));
-
     }
 
     public ResultSet selecting() throws SQLException{
         logger.warn("selecting employee");
         Statement stmt=con.createStatement();
         ResultSet rs=stmt.executeQuery("select * from employee");
-        return rs;
 //        while(rs.next()) {
-//            logger.info(rs.getInt(1)+" "+rs.getString(2)+" "+rs.getString(3));
+//            logger.info(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3));
 //        }
-//        stmt.close();
+        return rs;
     }
 
     public void inserting(int id, String name, int age) throws SQLException{
